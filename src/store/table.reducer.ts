@@ -9,13 +9,9 @@ export interface TableState {
 }
 
 const initialState: TableState = {
-  model: {
-    0: {
-      0: 'init',
-    }
-  },
-  rows: [0],
-  columns: [0],
+  model: {},
+  rows: [],
+  columns: [],
 };
 
 const editCellReducer = (action: Actions) =>
@@ -23,7 +19,7 @@ const editCellReducer = (action: Actions) =>
 
 
 const addColumnReducer = (_: Actions) => (state: TableState) => {
-  const newColumnId = R.last(state.columns)! + 1;
+  const newColumnId = (R.last(state.columns) || 0) + 1;
   return R.evolve({
     columns: R.append(newColumnId),
     model: R.mapObjIndexed((val) => R.assoc(String(newColumnId), '', val)),
@@ -31,7 +27,7 @@ const addColumnReducer = (_: Actions) => (state: TableState) => {
 };
 
 const addRowReducer = (_: Actions) => (state: TableState) => {
-  const newRowid = R.last(state.rows)! + 1;
+  const newRowid = (R.last(state.rows) || 0) + 1;
   const newRow = state.columns.reduce((acc, curr) => R.assoc(String(curr), '', acc), {});
   return R.evolve({
     rows: R.append(newRowid),
@@ -55,7 +51,6 @@ const removeRowReducer = (action: Actions) => (state: TableState) => {
     model: R.dissoc(String(rowIdToRemove)),
   })(state);
 };
-
 
 
 const reducers = {

@@ -4,11 +4,14 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import * as storage from 'redux-storage';
 import createEngine from 'redux-storage-engine-localstorage';
 
+import { createEpicMiddleware } from 'redux-observable';
 import filter from 'redux-storage-decorator-filter';
+import { epics } from './epics';
 import { reducers } from './reducers';
 
 export const history = createBrowserHistory();
 
+const epicMiddleware = createEpicMiddleware();
 
 export function configureStore() {
   const storeKey = 'table';
@@ -24,11 +27,11 @@ export function configureStore() {
   const engine = filter(
     createEngine(storeKey),
     [],
-    [ 'router' ]
+    ['router']
   );
   const middleware = storage.createMiddleware(engine);
   const createStoreWithMiddleware = composeEnhancers(
-    applyMiddleware(...[routerMiddleware(history), middleware]),
+    applyMiddleware(...[routerMiddleware(history), epicMiddleware, middleware]),
   )(createStore);
 
   const load = storage.createLoader(engine);
@@ -43,6 +46,8 @@ export function configureStore() {
   if (cachedStore) {
     load(store);
   }
+
+  epicMiddleware.run(epics as any);
 
   return store;
 }

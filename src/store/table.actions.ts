@@ -6,6 +6,8 @@ export enum TableActions {
   REMOVE_COLUMN = '[Table]: remove column',
   ADD_ROW = '[Table]: add row',
   REMOVE_ROW = '[Table]: remove row',
+  DOWNLOAD_CSV = '[Table]: download csv',
+  DOWNLOAD_CSV_COMPLETED = '[Table]: download csv completed',
 }
 
 export interface EditCellPayload {
@@ -46,3 +48,11 @@ export const addRow =
 
 export const removeRow =
   newAction<number, RemoveRowAction>(TableActions.REMOVE_ROW);
+
+export const downloadCSV =
+  newAction<number, Action>(TableActions.DOWNLOAD_CSV);
+
+export const downloadCSVCompleted =
+  newAction<number, Action>(TableActions.DOWNLOAD_CSV_COMPLETED);
+
+

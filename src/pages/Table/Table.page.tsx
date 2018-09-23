@@ -6,7 +6,7 @@ import { TableCellComponent } from '../../components/Table-Cell/Table-Cell.compo
 import { TableRowComponent } from '../../components/Table-Row/Table-Row.component';
 import { TableComponent } from '../../components/Table/Table.component';
 import { AppState } from '../../reducers';
-import { addColumn, addRow, removeColumn, removeRow } from '../../store/table.actions';
+import { addColumn, addRow, downloadCSV, removeColumn, removeRow } from '../../store/table.actions';
 import { CellComponent } from './components/Cell.component';
 
 interface StoreProps {
@@ -19,6 +19,7 @@ interface DispatchProps {
   addRow: any;
   removeColumn: any;
   removeRow: any;
+  downloadCSV: any;
 }
 
 interface StateProps {
@@ -30,8 +31,7 @@ export class Table extends React.PureComponent<StoreProps & DispatchProps, State
     super(props);
     this.addColumn = this.addColumn.bind(this);
     this.addRow = this.addRow.bind(this);
-    // this.removeRow = this.removeRow.bind(this);
-    // this.removeColumn = this.removeColumn.bind(this);
+    this.downloadCSV = this.downloadCSV.bind(this);
   }
 
   public addColumn() {
@@ -42,9 +42,11 @@ export class Table extends React.PureComponent<StoreProps & DispatchProps, State
     this.props.addRow();
   }
 
+  public downloadCSV() {
+    this.props.downloadCSV();
+  }
 
   public render() {
-    console.log(this.props);
     return (
       <div>
         <TableComponent>
@@ -71,14 +73,14 @@ export class Table extends React.PureComponent<StoreProps & DispatchProps, State
         </TableComponent>
         <button onClick={this.addColumn}>Add Column</button>
         <button onClick={this.addRow}>Add Row</button>
+        <button onClick={this.downloadCSV}>Download CSV</button>
       </div>
-
     );
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators(
-  { addColumn, addRow, removeColumn, removeRow },
+  { addColumn, addRow, removeColumn, removeRow, downloadCSV },
   dispatch,
 );
 

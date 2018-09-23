@@ -11,7 +11,7 @@ export const history = createBrowserHistory();
 
 
 export function configureStore() {
-  const storeKey = 'beerguru';
+  const storeKey = 'table';
 
   const initialState = {};
   const reducer = storage.reducer(connectRouter(history)(combineReducers({
@@ -24,7 +24,7 @@ export function configureStore() {
   const engine = filter(
     createEngine(storeKey),
     [],
-    [ 'table', 'router']
+    [ 'router' ]
   );
   const middleware = storage.createMiddleware(engine);
   const createStoreWithMiddleware = composeEnhancers(

@@ -1,3 +1,5 @@
-export interface TablePayload {
-  asd: any;
+export interface TableModel {
+  [row: number]: {
+    [column: number]: string;
+  }
 }

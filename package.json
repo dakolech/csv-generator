@@ -1,5 +1,5 @@
 {
-  "name": "table",
+  "name": "csv-generator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,17 +25,19 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "test:coverage": "react-scripts-ts test --env=jsdom --coverage --coverageDirectory=coverage"
+    "test:coverage": "react-scripts-ts test --env=jsdom --coverage --coverageDirectory=coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.1",
-    "@types/node": "^10.5.8",
-    "@types/react": "^16.4.9",
-    "@types/react-dom": "^16.0.7",
     "@types/enzyme": "^3.1.13",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jasmine": "^2.8.8",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.8",
     "@types/ramda": "^0.25.36",
+    "@types/react": "^16.4.9",
+    "@types/react-dom": "^16.0.7",
     "@types/react-infinite-scroller": "^1.0.7",
     "@types/react-redux": "^5.0.6",
     "@types/react-router": "^4.0.30",
@@ -44,13 +46,15 @@
     "@types/redux-mock-store": "^0.0.14",
     "@types/redux-storage": "^4.0.11",
     "@types/redux-storage-engine-localstorage": "^1.1.0",
-    "typescript": "^3.0.1",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
+    "gh-pages": "^2.0.0",
     "jasmine": "^3.2.0",
     "jasmine-core": "^3.2.0",
     "jasmine-marbles": "^0.3.1",
     "redux-devtools-extension": "^2.13.5",
-    "redux-mock-store": "^1.5.3"
-  }
+    "redux-mock-store": "^1.5.3",
+    "typescript": "^3.0.1"
+  },
+  "homepage": "https://dakolech.github.io/csv-generator/"
 }

@@ -13,8 +13,8 @@ class App extends React.Component {
       <div>
         <AppContainerComponent>
           <HeaderComponent>
-            <TitleComponent big={true}>Table</TitleComponent>
-            <TitleComponent big={true} color={darkGrey}>Guru</TitleComponent>
+            <TitleComponent big={true}>CSV</TitleComponent>
+            <TitleComponent big={true} color={darkGrey}>Generator</TitleComponent>
           </HeaderComponent>
           <TablePage/>
         </AppContainerComponent>

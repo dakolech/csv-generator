@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { ActionsObservable } from 'redux-observable';
-import { tap, withLatestFrom, map, pluck, mapTo } from 'rxjs/operators';
+import { map, mapTo, pluck, tap, withLatestFrom } from 'rxjs/operators';
 import { TableModel } from '../models/table.model';
 import {
   Actions, downloadCSVCompleted, TableActions,

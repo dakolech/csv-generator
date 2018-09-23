@@ -1,3 +1,5 @@
+[Open app](https://dakolech.github.io/csv-generator/)
+
 ## Install
 
 In the project directory, you should run:

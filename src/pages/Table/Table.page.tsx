@@ -26,11 +26,11 @@ interface StoreProps {
 }
 
 interface DispatchProps {
-  addColumn: any;
-  addRow: any;
-  removeColumn: any;
-  removeRow: any;
-  downloadCSV: any;
+  addColumn: () => void;
+  addRow: () => void;
+  removeColumn: (val: number) => void;
+  removeRow: (val: number) => void;
+  downloadCSV: () => void;
 }
 
 interface StateProps {

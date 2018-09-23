@@ -1,6 +1,12 @@
 import * as R from "ramda";
 import { TableModel } from "../models/table.model";
-import { Actions, TableActions } from "./table.actions";
+import {
+  Actions,
+  EditCellAction,
+  RemoveColumnAction,
+  RemoveRowAction,
+  TableActions
+} from "./table.actions";
 
 export interface TableState {
   model: TableModel;
@@ -14,7 +20,7 @@ const initialState: TableState = {
   columns: []
 };
 
-const editCellReducer = (action: Actions) =>
+const editCellReducer = (action: EditCellAction) =>
   R.assocPath(
     ["model", action.payload.row, action.payload.column],
     action.payload.value
@@ -40,7 +46,9 @@ const addRowReducer = (_: Actions) => (state: TableState) => {
   })(state);
 };
 
-const removeColumnReducer = (action: Actions) => (state: TableState) => {
+const removeColumnReducer = (action: RemoveColumnAction) => (
+  state: TableState
+) => {
   const columnIdToRemove = action.payload;
   return R.evolve({
     columns: R.reject(R.equals(columnIdToRemove)) as any,
@@ -48,7 +56,7 @@ const removeColumnReducer = (action: Actions) => (state: TableState) => {
   })(state);
 };
 
-const removeRowReducer = (action: Actions) => (state: TableState) => {
+const removeRowReducer = (action: RemoveRowAction) => (state: TableState) => {
   const rowIdToRemove = action.payload;
   return R.evolve({
     rows: R.reject(R.equals(rowIdToRemove)) as any,

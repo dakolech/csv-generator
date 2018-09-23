@@ -28,33 +28,34 @@ export interface RemoveRowAction extends Action {
   payload: number;
 }
 
-export type Actions = EditCellAction &
-  RemoveColumnAction &
-  RemoveRowAction &
-  Action;
+export type Actions =
+  | EditCellAction
+  | RemoveColumnAction
+  | RemoveRowAction
+  | Action;
 
 function newAction<P, A extends Action>(type: TableActions) {
   return (payload?: P): A => ({ type, payload } as any);
 }
 
-export const editCell = newAction<number, EditCellAction>(
+export const editCell = newAction<EditCellPayload, EditCellAction>(
   TableActions.EDIT_CELL
 );
 
-export const addColumn = newAction<number, Action>(TableActions.ADD_COLUMN);
+export const addColumn = newAction<{}, Action>(TableActions.ADD_COLUMN);
 
 export const removeColumn = newAction<number, RemoveColumnAction>(
   TableActions.REMOVE_COLUMN
 );
 
-export const addRow = newAction<number, Action>(TableActions.ADD_ROW);
+export const addRow = newAction<{}, Action>(TableActions.ADD_ROW);
 
 export const removeRow = newAction<number, RemoveRowAction>(
   TableActions.REMOVE_ROW
 );
 
-export const downloadCSV = newAction<number, Action>(TableActions.DOWNLOAD_CSV);
+export const downloadCSV = newAction<{}, Action>(TableActions.DOWNLOAD_CSV);
 
-export const downloadCSVCompleted = newAction<number, Action>(
+export const downloadCSVCompleted = newAction<{}, Action>(
   TableActions.DOWNLOAD_CSV_COMPLETED
 );

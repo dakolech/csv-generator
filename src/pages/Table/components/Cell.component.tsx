@@ -52,5 +52,5 @@ const mapStateToProps = (state: AppState, ownProps: OwnProps) => ({
 
 export const CellComponent = connect<StoreProps, DispatchProps, OwnProps>(
   mapStateToProps,
-  mapDispatchToProps as any
+  mapDispatchToProps
 )(Cell);

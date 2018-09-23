@@ -5,5 +5,4 @@ export const HeaderComponent: any = ContainerComponent.extend`
   flex-direction: row;
   padding-top: 100px;
   padding-bottom: 40px;
-  padding-left: 20px;
 `;

@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { TableInputComponent } from '../../../components/Table-Input/Table-Input.component';
+import { TableInputComponent } from '../../../components/Table/Table-Input.component';
 import { AppState } from '../../../reducers';
 import { editCell, EditCellPayload } from '../../../store/table.actions';
 

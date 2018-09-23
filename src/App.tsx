@@ -10,15 +10,13 @@ import { TablePage } from './pages/Table/Table.page';
 class App extends React.Component {
   public render() {
     return (
-      <div>
-        <AppContainerComponent>
-          <HeaderComponent>
-            <TitleComponent big={true}>CSV</TitleComponent>
-            <TitleComponent big={true} color={darkGrey}>Generator</TitleComponent>
-          </HeaderComponent>
-          <TablePage/>
-        </AppContainerComponent>
-      </div>
+      <AppContainerComponent>
+        <HeaderComponent>
+          <TitleComponent big={true}>CSV</TitleComponent>
+          <TitleComponent big={true} color={darkGrey}>Generator</TitleComponent>
+        </HeaderComponent>
+        <TablePage/>
+      </AppContainerComponent>
     );
   }
 }

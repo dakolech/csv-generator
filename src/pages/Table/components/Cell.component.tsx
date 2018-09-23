@@ -1,10 +1,10 @@
-import * as R from 'ramda';
-import * as React from 'react';
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { TableInputComponent } from '../../../components/Table/Table-Input.component';
-import { AppState } from '../../../reducers';
-import { editCell, EditCellPayload } from '../../../store/table.actions';
+import * as R from "ramda";
+import * as React from "react";
+import { connect, Dispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { TableInputComponent } from "../../../components/Table/Table-Input.component";
+import { AppState } from "../../../reducers";
+import { editCell, EditCellPayload } from "../../../store/table.actions";
 
 interface StoreProps {
   cell?: string;
@@ -29,27 +29,28 @@ export class Cell extends React.PureComponent<ComponentProps> {
 
   public onChange(event: Event) {
     const { column, row } = this.props;
-    this.props.editCell({ column, row, value: (event.target as any).value })
+    this.props.editCell({ column, row, value: (event.target as any).value });
   }
 
   public render() {
-    console.log('render cell', this.props.row, this.props.column);
     return (
-      <TableInputComponent type="text" onChange={this.onChange} value={this.props.cell}/>
-    )
+      <TableInputComponent
+        type="text"
+        onChange={this.onChange}
+        value={this.props.cell}
+      />
+    );
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators(
-  { editCell },
-  dispatch,
-);
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators({ editCell }, dispatch);
 
 const mapStateToProps = (state: AppState, ownProps: OwnProps) => ({
-  cell: R.path<string>(['table', 'model', ownProps.row, ownProps.column], state),
+  cell: R.path<string>(["table", "model", ownProps.row, ownProps.column], state)
 });
 
-export const CellComponent =
-  connect<StoreProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps as any)(Cell);
-
-
+export const CellComponent = connect<StoreProps, DispatchProps, OwnProps>(
+  mapStateToProps,
+  mapDispatchToProps as any
+)(Cell);

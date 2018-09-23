@@ -1,11 +1,11 @@
-import * as React from 'react';
-import './App.css';
+import * as React from "react";
+import "./App.css";
 
-import { AppContainerComponent } from './components/App-Container/App-Container.component';
-import { HeaderComponent } from './components/Header/Header.component';
-import { TitleComponent } from './components/Title/Title.component';
-import { darkGrey } from './config/styles/colors';
-import { TablePage } from './pages/Table/Table.page';
+import { AppContainerComponent } from "./components/App-Container/App-Container.component";
+import { HeaderComponent } from "./components/Header/Header.component";
+import { TitleComponent } from "./components/Title/Title.component";
+import { darkGrey } from "./config/styles/colors";
+import { TablePage } from "./pages/Table/Table.page";
 
 class App extends React.Component {
   public render() {
@@ -13,12 +13,15 @@ class App extends React.Component {
       <AppContainerComponent>
         <HeaderComponent>
           <TitleComponent big={true}>CSV</TitleComponent>
-          <TitleComponent big={true} color={darkGrey}>Generator</TitleComponent>
+          <TitleComponent big={true} color={darkGrey}>
+            Generator
+          </TitleComponent>
         </HeaderComponent>
-        <TablePage/>
+        <TablePage />
       </AppContainerComponent>
     );
   }
 }
+
 
 export default App;

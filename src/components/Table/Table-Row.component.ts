@@ -1,4 +1,3 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const TableRowComponent: any = styled.tr`
-`;
+export const TableRowComponent: any = styled.tr``;

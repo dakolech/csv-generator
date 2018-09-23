@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { backgroundGrey } from '../../config/styles/colors';
+import styled from "styled-components";
+import { backgroundGrey } from "../../config/styles/colors";
 
 export const AppContainerComponent: any = styled.div`
   flex: 1;

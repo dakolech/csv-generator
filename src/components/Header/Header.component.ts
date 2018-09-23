@@ -1,4 +1,4 @@
-import { ContainerComponent } from '../Container/Container.component';
+import { ContainerComponent } from "../Container/Container.component";
 
 export const HeaderComponent: any = ContainerComponent.extend`
   align-items: flex-start;

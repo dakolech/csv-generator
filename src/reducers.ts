@@ -1,9 +1,9 @@
-import { tableReducer, TableState } from './store/table.reducer';
+import { tableReducer, TableState } from "./store/table.reducer";
 
 export interface AppState {
-  table: TableState,
+  table: TableState;
 }
 
 export const reducers = {
-  table: tableReducer,
+  table: tableReducer
 };
